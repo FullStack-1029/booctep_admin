@@ -1,0 +1,291 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="contents">
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Control Dashboard</h4>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card card-default card-md mb-4">
+                <div class="card-header  py-20">
+                    <h6>Priority</h6>
+                </div>
+                <div class="card-body">
+                    <div class="page-title-block bg-lighter bg-container">
+                        <div class="page-title-bg bg-white">
+
+                            <div class="page-title-wrap ">
+
+                                <div class="page-title d-flex justify-content-between">
+                                    <div class="page-title__left">
+                                        <span class="title-text">Priority</span>
+                                        <a href="#"><i class="las la-arrow-right"></i></a>
+                                        <span class="sub-title">Business</span>
+                                    </div>
+
+                                    <div class="page-title__right">
+
+                                        <div class="countryOption"
+                                             style="width:300px;border:1px solid #E9EAEA;border-radius: 3px;margin-left:20px">
+                                            <select class="js-example-basic-single js-states form-control"
+                                                    id="countryOption">
+                                                <option value="FBR">Business</option>
+                                                <option value="JAN">All</option>
+                                                <option value="FBR">Web Dev</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ends: .card -->
+
+            <div class="card card-default card-md mb-4">
+                <div class="card-header  py-20">
+                    <h6>Offers</h6>
+
+                    <div class="action-btn">
+                        <a href="#" class="btn px-15 btn-primary" data-toggle="modal" data-target="#c-job">
+                            <i class="las la-plus fs-16"></i>Add New Offer
+                        </a>
+
+                        <!-- Modal -->
+                        <div class="modal fade add-contact" id="c-job" role="dialog" tabindex="-1"
+                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content radius-xl">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title fw-500" id="staticBackdropLabel">Offer Information</h6>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span data-feather="x"></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="add-new-contact">
+                                            <form action="/">
+                                                <div class="form-group mb-20">
+                                                    <label>Offer Title:</label>
+                                                    <input type="text" class="form-control form-control-lg"
+                                                           placeholder="Your Name">
+                                                </div>
+                                                <div class="form-group mb-20">
+                                                    <label>Offer Percentage:</label>
+                                                    <input type="number" class="form-control form-control-lg"
+                                                           placeholder="Offer percentage">
+                                                </div>
+
+                                                <div class="button-group d-flex pt-20">
+
+
+                                                    <button class="btn btn-primary btn-default btn-squared ">add Offer
+                                                    </button>
+
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="page-title-block bg-lighter bg-container">
+                        <div class="page-title-bg bg-white">
+
+                            <div class="page-title-wrap ">
+
+                                <div class="page-title d-flex justify-content-between">
+                                    <div class="page-title__left">
+                                        <span class="title-text">Offers</span>
+                                        <a href="#"><i class="las la-arrow-right"></i></a>
+                                        <span class="sub-title">Performance offer</span> -
+                                        <span class="sub-title">80%</span>
+                                        <a href="#" class="remove" data-toggle="modal" data-target="#modal-info-delete">
+                                            <span data-feather="trash-2"></span></a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ends: .card -->
+
+
+            <div class="card card-default card-md mb-4">
+                <div class="card-header  py-20">
+                    <h6>Students Tax</h6>
+
+                    <div class="action-btn">
+                        <a href="#" class="btn px-15 btn-primary" data-toggle="modal" data-target="#s-tax">
+                            <i class="las la-plus fs-16"></i>Add Students Tax
+                        </a>
+
+                        <!-- Modal -->
+                        <div class="modal fade add-contact" id="s-tax" role="dialog" tabindex="-1"
+                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content radius-xl">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title fw-500" id="staticBackdropLabel">Tax Information</h6>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span data-feather="x"></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="add-new-contact">
+                                            <form action="/">
+                                                <div class="form-group mb-20">
+                                                    <label>Tax Percentage:</label>
+                                                    <input type="number" class="form-control form-control-lg"
+                                                           placeholder="Tax percentage">
+                                                </div>
+
+                                                <div class="button-group d-flex pt-20">
+
+
+                                                    <button class="btn btn-primary btn-default btn-squared ">add Tax
+                                                    </button>
+
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="page-title-block bg-lighter bg-container">
+                        <div class="page-title-bg bg-white">
+
+                            <div class="page-title-wrap ">
+
+                                <div class="page-title d-flex justify-content-between">
+                                    <div class="page-title__left">
+                                        <span class="title-text">Students Tax</span>
+                                        <a href="#"><i class="las la-arrow-right"></i></a>
+                                        <span class="sub-title">80%</span>
+                                        <a href="#" class="remove" data-toggle="modal" data-target="#modal-info-delete">
+                                            <span data-feather="trash-2"></span></a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ends: .card -->
+
+
+            <div class="card card-default card-md mb-4">
+                <div class="card-header  py-20">
+                    <h6>Teachers Tax</h6>
+
+                    <div class="action-btn">
+                        <a href="#" class="btn px-15 btn-primary" data-toggle="modal" data-target="#t-tax">
+                            <i class="las la-plus fs-16"></i>Add Teacher Tax
+                        </a>
+
+                        <!-- Modal -->
+                        <div class="modal fade add-contact" id="t-tax" role="dialog" tabindex="-1"
+                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content radius-xl">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title fw-500" id="staticBackdropLabel">Tax Information</h6>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span data-feather="x"></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="add-new-contact">
+                                            <form action="/">
+                                                <div class="form-group mb-20">
+                                                    <label>Tax Percentage:</label>
+                                                    <input type="number" class="form-control form-control-lg"
+                                                           placeholder="Tax percentage">
+                                                </div>
+
+                                                <div class="button-group d-flex pt-20">
+
+
+                                                    <button class="btn btn-primary btn-default btn-squared ">add Tax
+                                                    </button>
+
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="page-title-block bg-lighter bg-container">
+                        <div class="page-title-bg bg-white">
+
+                            <div class="page-title-wrap ">
+
+                                <div class="page-title d-flex justify-content-between">
+                                    <div class="page-title__left">
+                                        <span class="title-text">Teachers Tax</span>
+                                        <a href="#"><i class="las la-arrow-right"></i></a>
+                                        <span class="sub-title">80%</span>
+                                        <a href="#" class="remove" data-toggle="modal" data-target="#modal-info-delete">
+                                            <span data-feather="trash-2"></span></a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ends: .card -->
+
+        </div>
+
+    </div>
+{% endblock %}

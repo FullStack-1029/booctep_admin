@@ -1,0 +1,569 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="contents">
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Report Spam Dashboard</h4>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="userDatatable orderDatatable global-shadow border py-30 px-sm-30 px-20 bg-white radius-xl w-100 mb-30">
+                        <div class="project-top-wrapper d-flex justify-content-between flex-wrap mb-25 mt-n10">
+                            <div class="d-flex align-items-center flex-wrap justify-content-center">
+                                <div class="project-search order-search  global-shadow mt-10">
+                                    <form action="/" class="order-search__form">
+                                        <span data-feather="search"></span>
+                                        <input class="form-control mr-sm-2 border-0 box-shadow-none" type="search"
+                                               placeholder="Filter by keyword" aria-label="Search">
+                                    </form>
+                                </div><!-- End: .project-search -->
+                                <div class="project-category d-flex align-items-center ml-md-30 mt-xl-10 mt-15">
+                                    <p class="fs-14 color-gray text-capitalize mb-10 mb-md-0  mr-10">Status :</p>
+                                    <div class="project-tap order-project-tap global-shadow">
+                                        <ul class="nav px-1" id="ap-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="ap-overview-tab" data-toggle="pill"
+                                                   href="#ap-overview" role="tab" aria-controls="ap-overview"
+                                                   aria-selected="true">Awaiting
+                                                    For review</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="timeline-tab" data-toggle="pill"
+                                                   href="#timeline" role="tab" aria-controls="timeline"
+                                                   aria-selected="false">checked</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div><!-- End: .project-category -->
+                            </div>
+
+
+                        </div><!-- End: .project-top-wrapper -->
+                        <div class="tab-content" id="ap-tabContent">
+                            <div class="tab-pane fade show active" id="ap-overview" role="tabpanel"
+                                 aria-labelledby="ap-overview-tab">
+                                <!-- Start Table Responsive -->
+                                <div class="table-responsive">
+                                    <table class="table mb-0 table-hover table-borderless border-0">
+                                        <thead>
+                                        <tr class="userDatatable-header">
+                                            <th>
+                                                <span class="userDatatable-title">Student name</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Teacher name</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Teacher email</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Course name</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Course id</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Total Report spam for this course</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title float-right">Actions</span>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    Course No #001
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    Elzubair M
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    alzober1414@gmail.com
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    How to run python
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    1222
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    46
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                    <li>
+                                                        <a href="#" class="">
+                                                            <span data-feather="send" data-toggle="modal"
+                                                                  data-target="#add-contact"></span></a>
+
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade add-contact" id="add-contact"
+                                                             role="dialog" tabindex="-1"
+                                                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content radius-xl">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title fw-500"
+                                                                            id="staticBackdropLabel">Send notification
+                                                                            to teacher</h6>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <span data-feather="x"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="add-new-contact">
+                                                                            <form action="/">
+
+                                                                                <div class="form-group mb-20">
+                                                                                    <input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Notification title">
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <textarea class="form-control"
+                                                                                              id="exampleFormControlTextarea1"
+                                                                                              rows="3"
+                                                                                              placeholder="Notification description"></textarea>
+                                                                                </div>
+
+                                                                                <div class="button-group d-flex pt-20">
+
+
+                                                                                    <button class="btn btn-primary btn-default btn-squared ">
+                                                                                        Send notification
+                                                                                    </button>
+
+                                                                                    <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                        cancel
+                                                                                    </button>
+
+
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+
+                                                    </li>
+                                                    <li>
+
+                                                        <div class="action-btn">
+                                                            <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                               class=" px-15" data-toggle="modal"
+                                                               data-target="#new-member">
+                                                                <span data-feather="eye"></span></a>
+                                                            <!-- Modal -->
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade new-member" id="new-member"
+                                                                 role="dialog" tabindex="-1"
+                                                                 aria-labelledby="staticBackdropLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content  radius-xl">
+                                                                        <div class="modal-header">
+                                                                            <h6 class="modal-title fw-500"
+                                                                                id="staticBackdropLabel">Message</h6>
+                                                                            <button type="button" class="close"
+                                                                                    data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                <span data-feather="x"></span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="new-member-modal">
+                                                                                <form>
+                                                                                    <!-- style="border-bottom: 1px solid #ECEEEF" -->
+
+                                                                                    <div class="atbd-notice__content">
+
+
+                                                                                        <h3>Title of Report</h3>
+
+
+                                                                                    </div>
+                                                                                    <!-- ends: .col-lg-6 -->
+
+                                                                                    <div class="atbd-notice__content">
+
+
+                                                                                        <div class="notice-listBlock bg-normal mt-30">
+                                                                                            <h6>I don't like the
+                                                                                                course!</h6>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                    <!-- ends: .col-lg-6 -->
+
+                                                                                    <div class="button-group d-flex pt-25">
+
+
+                                                                                        <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                            Ok
+                                                                                        </button>
+                                                                                    </div>
+
+
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Modal -->
+
+
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="edit" data-toggle="modal"
+                                                           data-target="#modal-info-confirmed">
+                                                            <span data-feather="thumbs-up"></span></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- End: tr -->
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Table Responsive End -->
+                            </div>
+                            <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
+                                <!-- Start Table Responsive -->
+                                <div class="table-responsive">
+                                    <table class="table mb-0 table-hover table-borderless border-0">
+                                        <thead>
+                                        <tr class="userDatatable-header">
+                                            <th>
+                                                <span class="userDatatable-title">Student name</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Course name</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Course id</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Total Report spam for this course</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Price</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title float-right">Actions</span>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    Course No #001
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    Elzubair Mohammed
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    1222
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    1
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    46
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                    <li>
+
+                                                        <div class="action-btn">
+                                                            <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                               class=" px-15" data-toggle="modal"
+                                                               data-target="#new-member">
+                                                                <span data-feather="eye"></span></a>
+                                                            <!-- Modal -->
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade new-member" id="new-member"
+                                                                 role="dialog" tabindex="-1"
+                                                                 aria-labelledby="staticBackdropLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content  radius-xl">
+                                                                        <div class="modal-header">
+                                                                            <h6 class="modal-title fw-500"
+                                                                                id="staticBackdropLabel">Message</h6>
+                                                                            <button type="button" class="close"
+                                                                                    data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                <span data-feather="x"></span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="new-member-modal">
+                                                                                <form>
+                                                                                    <!-- style="border-bottom: 1px solid #ECEEEF" -->
+
+                                                                                    <div class="atbd-notice__content">
+
+
+                                                                                        <h3>Title of Report</h3>
+
+
+                                                                                    </div>
+                                                                                    <!-- ends: .col-lg-6 -->
+
+                                                                                    <div class="atbd-notice__content">
+
+
+                                                                                        <div class="notice-listBlock bg-normal mt-30">
+                                                                                            <h6>I don't like the
+                                                                                                course!</h6>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                    <!-- ends: .col-lg-6 -->
+
+                                                                                    <div class="button-group d-flex pt-25">
+
+
+                                                                                        <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                            Ok
+                                                                                        </button>
+                                                                                    </div>
+
+
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Modal -->
+
+
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="edit">
+                                                            <span data-feather="thumbs-up"></span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="remove">
+                                                            <span data-feather="trash-2"></span></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- End: tr -->
+
+                                        <tr>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    Course No #001
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    Elzubair Mohammed
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    122333
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    1
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    248
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                    <li>
+
+                                                        <div class="action-btn">
+                                                            <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                               class=" px-15" data-toggle="modal"
+                                                               data-target="#new-member">
+                                                                <span data-feather="eye"></span></a>
+                                                            <!-- Modal -->
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade new-member" id="new-member"
+                                                                 role="dialog" tabindex="-1"
+                                                                 aria-labelledby="staticBackdropLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content  radius-xl">
+                                                                        <div class="modal-header">
+                                                                            <h6 class="modal-title fw-500"
+                                                                                id="staticBackdropLabel">Task</h6>
+                                                                            <button type="button" class="close"
+                                                                                    data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                <span data-feather="x"></span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="new-member-modal">
+                                                                                <form>
+                                                                                    <!-- style="border-bottom: 1px solid #ECEEEF" -->
+
+                                                                                    <div class="card-body">
+                                                                                        <h3>Send Analysis Pdf</h3>
+                                                                                        <div class="atbd-notice__content">
+
+
+                                                                                            <div class="notice-listBlock bg-normal mt-30">
+                                                                                                <h6>I did my best, but
+                                                                                                    there
+                                                                                                    are.......</h6>
+                                                                                            </div>
+
+
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                                    <div class="col-12">
+                                                                                        <div class="card card-default card-md mb-4">
+                                                                                            <div class="card-header ">
+
+                                                                                                <div class="atbd-upload__file"
+                                                                                                     style="width:100% !important;margin-left: 20px">
+                                                                                                    <ul>
+
+                                                                                                        <li>
+                                                                                                            <a href="#"
+                                                                                                               class="file-name"><i
+                                                                                                                    class="las la-paperclip"></i>
+                                                                                                                <span class="name-text">yyy.jpg<span></span></span></a>
+                                                                                                            <a href="#"
+                                                                                                               class="btn-delete"><i
+                                                                                                                    class="la la-eye"></i></a>
+                                                                                                        </li>
+
+                                                                                                    </ul>
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!-- ends: .card -->
+                                                                                    </div>
+                                                                                    <!-- ends: .col-lg-6 -->
+
+
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Modal -->
+
+
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="edit">
+                                                            <span data-feather="thumbs-up"></span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="remove">
+                                                            <span data-feather="trash-2"></span></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- End: tr -->
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Table Responsive End -->
+
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-sm-end justify-content-start mt-15 pt-25 border-top">
+
+                            <nav class="atbd-page ">
+                                <ul class="atbd-pagination d-flex">
+                                    <li class="atbd-pagination__item">
+                                        <a href="#" class="atbd-pagination__link pagination-control"><span
+                                                class="la la-angle-left"></span></a>
+                                        <a href="#" class="atbd-pagination__link"><span class="page-number">1</span></a>
+                                        <a href="#" class="atbd-pagination__link active"><span
+                                                class="page-number">2</span></a>
+                                        <a href="#" class="atbd-pagination__link"><span class="page-number">3</span></a>
+                                        <a href="#" class="atbd-pagination__link pagination-control"><span
+                                                class="page-number">...</span></a>
+                                        <a href="#" class="atbd-pagination__link"><span
+                                                class="page-number">12</span></a>
+                                        <a href="#" class="atbd-pagination__link pagination-control"><span
+                                                class="la la-angle-right"></span></a>
+                                        <a href="#" class="atbd-pagination__option">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+
+                        </div>
+                    </div><!-- End: .userDatatable -->
+                </div><!-- End: .col -->
+
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

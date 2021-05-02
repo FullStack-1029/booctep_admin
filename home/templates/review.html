@@ -1,0 +1,582 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<div class="contents">
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">Courses Performance Dashboard</h4>
+                </div>
+
+            </div>
+            <div class="col-xl-4 col-md-4">
+                <!-- Card 2 End  -->
+                <div class="ap-po-details ap-po-details--2 p-30 radius-xl bg-white d-flex justify-content-between mb-25">
+                    <div>
+                        <div class="overview-content overview-content3">
+                            <div class="d-flex">
+                                <div class="revenue-chart-box__Icon mr-20 order-bg-opacity-primary">
+                                    <img src="{% static 'img/svg/customer.svg' %}" alt="img" class="svg">
+                                </div>
+                                <div>
+                                    <h2 id="course_count">7</h2>
+                                    <p class="mb-3 mt-1">New Courses</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Card 2 End  -->
+            </div>
+            <div class="col-xl-4 col-md-4">
+                <!-- Card 2 End  -->
+                <div class="ap-po-details ap-po-details--2 p-30 radius-xl bg-white d-flex justify-content-between mb-25">
+                    <div>
+                        <div class="overview-content overview-content3">
+                            <div class="d-flex">
+                                <div class="revenue-chart-box__Icon mr-20 order-bg-opacity-primary">
+                                    <img src="{% static 'img/svg/profit.svg' %}" alt="img" class="svg">
+                                </div>
+                                <div>
+                                    <h2>5</h2>
+                                    <p class="mb-3 mt-1">Paid Courses</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Card 2 End  -->
+            </div>
+            <div class="col-xl-4 col-md-4">
+                <!-- Card 2 End  -->
+                <div class="ap-po-details ap-po-details--2 p-30 radius-xl bg-white d-flex justify-content-between mb-25">
+                    <div>
+                        <div class="overview-content overview-content3">
+                            <div class="d-flex">
+                                <div class="revenue-chart-box__Icon mr-20 order-bg-opacity-primary">
+                                    <img src="{% static 'img/svg/customer.svg' %}" alt="img" class="svg">
+                                </div>
+                                <div>
+                                    <h2>2</h2>
+                                    <p class="mb-3 mt-1">Free Courses</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Card 2 End  -->
+            </div>
+
+            <div class="col-lg-12">
+                <div class="userDatatable orderDatatable global-shadow border py-30 px-sm-30 px-20 bg-white radius-xl w-100 mb-30">
+                    <div class="project-top-wrapper d-flex justify-content-between flex-wrap mb-25 mt-n10">
+                        <div class="d-flex align-items-center flex-wrap justify-content-center">
+                            <div class="project-search order-search  global-shadow mt-10">
+                                <form id="search_form" action="" method="post" class="order-search__form">
+                                    {% csrf_token %}
+                                    <span data-feather="search"></span>
+                                    <input class="form-control mr-sm-2 border-0 box-shadow-none" type="search"
+                                           placeholder="Filter by keyword" id="search" name="search"
+                                           aria-label="Search">
+                                    <input type="hidden" name="type" id="type" value="{{ type }}">
+                                    <input type="hidden" name="page" id="page" value="{{ page }}">
+                                </form>
+                            </div><!-- End: .project-search -->
+                            <div class="project-category d-flex align-items-center ml-md-30 mt-xl-10 mt-15">
+                                <p class="fs-14 color-gray text-capitalize mb-10 mb-md-0  mr-10">Status :</p>
+                                <div class="project-tap order-project-tap global-shadow">
+                                    <ul class="nav px-1" id="ap-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link {% if type == 1 %} active {% endif %}" href="#"
+                                               id="ap-overview-tab" data-toggle="pill"
+                                               role="tab" aria-controls="ap-overview" onclick="setTabAll()"
+                                               aria-selected="true">All</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link {% if type == 2 %} active {% endif %}" id="timeline-tab"
+                                               data-toggle="pill" href="#"
+                                               role="tab" aria-controls="timeline" onclick="setTabAwaiting()"
+                                               aria-selected="false">Awaiting
+                                                For review</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link {% if type == 3 %} active {% endif %}" id="activity-tab"
+                                               data-toggle="pill" href="#"
+                                               role="tab" aria-controls="activity" onclick="setTabApproved()"
+                                               aria-selected="false">Approved</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link {% if type == 4 %} active {% endif %}" id="draft-tab"
+                                               data-toggle="pill" href="#"
+                                               onclick="setTabCanceled()"
+                                               role="tab" aria-controls="draft" aria-selected="false">Canceled</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div><!-- End: .project-category -->
+                        </div>
+                    </div><!-- End: .project-top-wrapper -->
+                    <div class="tab-content" id="ap-tabContent">
+                        <div class="tab-pane fade show active" id="ap-overview" role="tabpanel"
+                             aria-labelledby="ap-overview-tab">
+                            <!-- Start Table Responsive -->
+                            <div class="table-responsive">
+                                <table class="table mb-0 table-hover table-borderless border-0">
+                                    <thead>
+                                    <tr class="userDatatable-header">
+                                        <th>
+                                            <span class="userDatatable-title">Course name</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Teacher name</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Status</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Price</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title float-right">Creation date</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title float-right">Actions</span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="all_course">
+                                    {% for course in courses %}
+                                    <tr>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                {{ course.name }}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                {{ course.user.first_name }} {{ course.user.last_name }}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-status d-inline-block">
+                                                <span class="order-bg-opacity-success  text-success rounded-pill active">
+                                                    {% if course.approval_status == 1 %}
+                                                    Awaiting
+                                                    {% elif course.approval_status == 2 %}
+                                                    Approved
+                                                    {% elif course.approval_status == 3 %}
+                                                    Canceled
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                ${{ course.price }}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title float-right">
+                                                {{ course.created_at | date:"M d, Y" }}
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right"
+                                                data-course="{{ course.id }}" data-user="{{ course.user_id }}">
+                                                <li>
+                                                    <div class="action-btn">
+                                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15" onclick="addNotiModal(this)">
+                                                            <span data-feather="send"></span></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="action-btn">
+                                                        <a href="http://localhost:8000/static{{ course.course_url }}"
+                                                           style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15">
+                                                            <span data-feather="eye"></span></a>
+                                                        <!-- Modal -->
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="edit" onclick="setApprove(this)">
+                                                            <span data-feather="thumbs-up" data-toggle="modal"
+                                                                  data-target="#modal-info-confirmed"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="remove" onclick="setCancel(this)">
+                                                            <span data-feather="trash-2" data-toggle="modal"
+                                                                  data-target="#modal-info-delete"></span></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Table Responsive End -->
+                        </div>
+                    </div>
+                    {% if courses.has_other_pages %}
+                    <div class="d-flex justify-content-sm-end justify-content-start mt-15 pt-25 border-top">
+                        <nav class="atbd-page">
+                            <ul class="atbd-pagination d-flex">
+                                <li class="atbd-pagination__item">
+                                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                                            class="la la-angle-left"></span></a>
+                                    <a href="#" class="atbd-pagination__link"><span class="page-number">1</span></a>
+                                    <a href="#" class="atbd-pagination__link active"><span
+                                            class="page-number">2</span></a>
+                                    <a href="#" class="atbd-pagination__link"><span class="page-number">3</span></a>
+                                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                                            class="la la-angle-right"></span></a>
+                                    <a href="#" class="atbd-pagination__option">
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        {% endif %}
+
+
+                    </div>
+                </div><!-- End: .userDatatable -->
+            </div><!-- End: .col -->
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade new-member" id="add-noti"
+     role="dialog" tabindex="-1"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content  radius-xl">
+            <div class="modal-header">
+                <h6 class="modal-title fw-500"
+                    id="staticBackdropLabel">Send
+                    notification</h6>
+                <button type="button" class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span data-feather="x"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="new-member-modal">
+                    <form>
+                        <div class="form-group mb-20">
+                            <input type="text"
+                                   class="form-control"
+                                   id="noti_title"
+                                   placeholder="Notification title">
+                        </div>
+                        <div class="form-group mb-20">
+                            <textarea class="form-control"
+                                      rows="3"
+                                      id="noti_content"
+                                      placeholder="Notification description"></textarea>
+                        </div>
+                        <div class="button-group d-flex pt-25">
+                            <button class="btn btn-primary btn-default btn-squared text-capitalize"
+                                    onclick="sendNoti()">
+                                Send notification
+                            </button>
+                            <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light"
+                                    onclick="closeModal()">
+                                cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+{% endblock %}
+{% block script %}
+<script>
+
+    let added_list = [];
+    let cur_user, cur_course;
+
+    $(function () {
+        $('#search').keypress(evt => {
+            if (evt.keyCode == 13) {
+                $('#search_form').submit()
+            }
+        })
+    })
+
+    socket.on('add_course_complete', (data) => {
+        console.log("socket data", data)
+        user_id = data.user
+        course_id = data.course_id
+        url = '/getCourseById/'
+        let form_data = new FormData()
+        form_data.append('course_id', course_id)
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+        }).then((response) => {
+            added_list = JSON.parse(response.course)
+            user_name = response.name
+            console.log(added_list, user_name)
+            render()
+        })
+    })
+
+    const render = () => {
+        let html = ''
+        let html1 = ''
+        added_list.forEach(item => {
+            let date_time = new Date(item.fields.created_at.toString())
+            let type;
+            switch (item.fields.approval_status * 1) {
+                case 1: {
+                    type = 'Awaiting';
+                    break;
+                }
+                case 2: {
+                    type = 'Approved';
+                    break;
+                }
+                case 3: {
+                    type = 'Canceled';
+                    break;
+                }
+            }
+
+            html += `<tr>
+                        <td>
+                            <div class="orderDatatable-title">
+                                ` + item.fields.name + `
+                            </div>
+                        </td>
+                        <td>
+                            <div class="orderDatatable-title">
+                                ` + user_name + `
+                            </div>
+                        </td>
+                        <td>
+                            <div class="orderDatatable-status d-inline-block">
+                                <span class="order-bg-opacity-success  text-success rounded-pill active">
+                                    ` + type + `
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="orderDatatable-title">
+                                $` + item.fields.price + `
+                            </div>
+                        </td>
+                        <td>
+                            <div class="orderDatatable-title float-right">
+                                ` + moment(date_time).format("MMM DD, YYYY") + `
+                            </div>
+                        </td>
+                        <td>
+                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right" data-course="` + item.id + `" data-user="` + item.user_id + `">
+                                <li>
+                                    <div class="action-btn">
+                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                           class=" px-15" onclick="addNotiModal(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="action-btn">
+                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                           class=" px-15" data-toggle="modal"
+                                           data-target="#new-member">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#" class="edit" onclick="setApprove(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up" data-toggle="modal" data-target="#modal-info-confirmed"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="remove" onclick="setCancel(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2" data-toggle="modal" data-target="#modal-info-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>`;
+        })
+        $('#all_course').append(html)
+        added_list.forEach(item => {
+            let date_time = new Date(item.fields.created_at.toString())
+            let type;
+            switch (item.fields.approval_status * 1) {
+                case 1: {
+                    type = 'Awaiting';
+                    break;
+                }
+                case 2: {
+                    type = 'Approved';
+                    break;
+                }
+                case 3: {
+                    type = 'Canceled';
+                    break;
+                }
+            }
+
+            html1 += `<tr>
+                        <td>
+                            <div class="orderDatatable-title">
+                                ` + item.fields.name + `
+                            </div>
+                        </td>
+                        <td>
+                            <div class="orderDatatable-title">
+                                ` + user_name + `
+                            </div>
+                        </td>
+                        <td>
+                            <div class="orderDatatable-status d-inline-block">
+                                <span class="order-bg-opacity-success  text-success rounded-pill active">
+                                    ` + type + `
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="orderDatatable-title">
+                                $` + item.fields.price + `
+                            </div>
+                        </td>
+                        <td>
+                            <div class="orderDatatable-title float-right">
+                                ` + moment(date_time).format("MMM DD, YYYY") + `
+                            </div>
+                        </td>
+                        <td>
+                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                <li>
+                                    <div class="action-btn">
+                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                           class=" px-15" data-toggle="modal"
+                                           data-target="#new-member">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#" class="edit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up" data-toggle="modal" data-target="#modal-info-confirmed"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="remove">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2" data-toggle="modal" data-target="#modal-info-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>`;
+        })
+        $('#awaiting_course').append(html1)
+        let count = parseInt($('#course_count').html())
+        $('#course_count').html(count + 1)
+    }
+
+    const addNotiModal = obj => {
+        $('#add-noti').modal('show')
+        cur_user = $(obj).parent().parent().data('user')
+        cur_course = $(obj).parent().paren t().data('course')
+    }
+
+    const sendNoti = () => {
+        let title = $('#noti_title').val()
+        let content = $('#noti_content').val()
+        socket.emit('add_noti_admin', {
+            title: title,
+            content: content,
+            course_id: cur_course,
+            user_id: cur_user
+        })
+        $('#add-noti').modal('hide')
+    }
+
+    const setApprove = obj => {
+        course_id = $(obj).parent().parent().data('course')
+        url = '/setApprove/'
+        let form_data = new FormData()
+        form_data.append('course_id', course_id)
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+        }).then((response) => {
+            if (response.msg == "success")
+                document.location.reload()
+        })
+    }
+
+    const setCancel = obj => {
+        course_id = $(obj).parent().parent().data('course')
+        url = '/setCancel/'
+        let form_data = new FormData()
+        form_data.append('course_id', course_id)
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+        }).then((response) => {
+            if (response.msg == "success")
+                document.location.reload()
+        })
+    }
+
+    const closeModal = () => {
+        $('#add-noti').modal('hide')
+    }
+
+    function setTabAll() {
+        $('#type').val(1)
+        $('#search_form').submit()
+    }
+
+    function setTabAwaiting () {
+        $('#type').val(2)
+        $('#search_form').submit()
+    }
+
+    function setTabApproved () {
+        $('#type').val(3)
+        $('#search_form').submit()
+    }
+
+    function setTabCanceled () {
+        $('#type').val(4)
+        $('#search_form').submit()
+    }
+
+</script>
+{% endblock %}
+

@@ -1,0 +1,306 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="contents">
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Sales Performance Dashboard</h4>
+                    </div>
+
+                </div>
+
+
+                <div class="col-xl-4 col-lg-12 mb-25">
+
+                    <div class="card revenueChartTwo broder-0">
+                        <div class="card-header">
+                            <h6>Sales Target</h6>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body px-sm-50 pb-sm-50 pt-sm-45 px-30 pb-30 pt-25 mb-sm-30">
+                            <div class="d-flex justify-content-center">
+                                <div class="">
+                                    <div class="sales-target__progress-bar">
+                                        <div class="left"></div>
+                                        <div class="right">
+                                            <div class="back"></div>
+                                        </div>
+                                        <div class="barOverflow">
+                                            <div class="bar">
+                                                <div class="top-circle"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="total-count">
+                                            <span>70</span>%
+                                            <div class="total-count__text">
+                                                progress
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sales-target d-flex justify-content-between">
+                                <div class="sales-target__single">
+                                    <h3 class="text-success">1,870</h3>
+                                    <span class="fs-14 color-gray">Paid courses</span>
+                                </div>
+                                <!-- ends: .cashflow-display__single -->
+                                <div class="sales-target__single">
+                                    <h3>7,870</h3>
+                                    <span class="fs-14 color-gray">Target</span>
+                                </div>
+                                <!-- ends: .cashflow-display__single -->
+                            </div>
+                            <!-- ends: .performance-stats -->
+                        </div>
+                        <!-- ends: .card-body -->
+                    </div>
+
+
+                    <a href="#" class="btn btn-primary btn-default btn-squared mt-20" style="margin-left: 70px"
+                       data-toggle="modal" data-target="#sales-target">
+                        Add new sales target
+                    </a>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade add-contact" id="sales-target" role="dialog" tabindex="-1"
+                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content radius-xl">
+                                <div class="modal-header">
+                                    <h6 class="modal-title fw-500" id="staticBackdropLabel">Add sales target</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span data-feather="x"></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="add-new-contact">
+                                        <form action="/">
+                                            <div class="form-group mb-20">
+                                                <label>Target:</label>
+                                                <input type="number" class="form-control form-control-lg"
+                                                       placeholder="Your sales target">
+                                            </div>
+
+                                            <div class="button-group d-flex pt-20">
+
+
+                                                <a href="#" class="btn btn-primary btn-default btn-squared ">add
+                                                </a>
+
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+
+                </div>
+
+
+                <div class="col-xl-4 col-lg-12 mb-25">
+
+                    <div class="card revenueChartTwo broder-0">
+                        <div class="card-header">
+                            <h6>Courses Target</h6>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body px-sm-50 pb-sm-50 pt-sm-45 px-30 pb-30 pt-25 mb-sm-30">
+                            <div class="d-flex justify-content-center">
+                                <div class="">
+                                    <div class="sales-target__progress-bar">
+                                        <div class="left"></div>
+                                        <div class="right">
+                                            <div class="back"></div>
+                                        </div>
+                                        <div class="barOverflow">
+                                            <div class="bar">
+                                                <div class="top-circle"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="total-count">
+                                            <span>70</span>%
+                                            <div class="total-count__text">
+                                                progress
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sales-target d-flex justify-content-between">
+                                <div class="sales-target__single">
+                                    <h3 class="text-success">70</h3>
+                                    <span class="fs-14 color-gray">Courses</span>
+                                </div>
+                                <!-- ends: .cashflow-display__single -->
+                                <div class="sales-target__single">
+                                    <h3>1,870</h3>
+                                    <span class="fs-14 color-gray">Target</span>
+                                </div>
+                                <!-- ends: .cashflow-display__single -->
+                            </div>
+                            <!-- ends: .performance-stats -->
+                        </div>
+                        <!-- ends: .card-body -->
+                    </div>
+
+
+                    <a href="#" class="btn btn-primary btn-default btn-squared mt-20" style="margin-left: 70px"
+                       data-toggle="modal" data-target="#course-target">
+                        Add new courses target
+                    </a>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade add-contact" id="course-target" role="dialog" tabindex="-1"
+                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content radius-xl">
+                                <div class="modal-header">
+                                    <h6 class="modal-title fw-500" id="staticBackdropLabel">Add courses target</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span data-feather="x"></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="add-new-contact">
+                                        <form action="/">
+                                            <div class="form-group mb-20">
+                                                <label>Target:</label>
+                                                <input type="number" class="form-control form-control-lg"
+                                                       placeholder="Your courses target">
+                                            </div>
+
+                                            <div class="button-group d-flex pt-20">
+
+
+                                                <a href="#" class="btn btn-primary btn-default btn-squared ">Add
+                                                </a>
+
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+
+                </div>
+
+
+                <div class="col-xl-4 col-lg-12 mb-25">
+
+                    <div class="card revenueChartTwo broder-0">
+                        <div class="card-header">
+                            <h6>Users Target</h6>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body px-sm-50 pb-sm-50 pt-sm-45 px-30 pb-30 pt-25 mb-sm-30">
+                            <div class="d-flex justify-content-center">
+                                <div class="">
+                                    <div class="sales-target__progress-bar">
+                                        <div class="left"></div>
+                                        <div class="right">
+                                            <div class="back"></div>
+                                        </div>
+                                        <div class="barOverflow">
+                                            <div class="bar">
+                                                <div class="top-circle"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="total-count">
+                                            <span>70</span>%
+                                            <div class="total-count__text">
+                                                progress
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sales-target d-flex justify-content-between">
+                                <div class="sales-target__single">
+                                    <h3 class="text-success">44,870</h3>
+                                    <span class="fs-14 color-gray">Users</span>
+                                </div>
+                                <!-- ends: .cashflow-display__single -->
+                                <div class="sales-target__single">
+                                    <h3>107,870</h3>
+                                    <span class="fs-14 color-gray">Target</span>
+                                </div>
+                                <!-- ends: .cashflow-display__single -->
+                            </div>
+                            <!-- ends: .performance-stats -->
+                        </div>
+
+
+                        <!-- ends: .card-body -->
+                    </div>
+
+
+                    <button class="btn btn-primary btn-default btn-squared mt-20" style="margin-left: 70px"
+                            data-toggle="modal" data-target="#users-target">
+                        Add new users target
+                    </button>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade add-contact" id="users-target" role="dialog" tabindex="-1"
+                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content radius-xl">
+                                <div class="modal-header">
+                                    <h6 class="modal-title fw-500" id="staticBackdropLabel">Add users target</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span data-feather="x"></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="add-new-contact">
+                                        <form action="/">
+                                            <div class="form-group mb-20">
+                                                <label>Target:</label>
+                                                <input type="number" class="form-control form-control-lg"
+                                                       placeholder="Your users target">
+                                            </div>
+
+                                            <div class="button-group d-flex pt-20">
+
+
+                                                <a href="#" class="btn btn-primary btn-default btn-squared ">Add
+                                                </a>
+
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

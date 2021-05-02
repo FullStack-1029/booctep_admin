@@ -1,0 +1,2063 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="contents">
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Students Performance Dashboard</h4>
+                    </div>
+
+                </div>
+                <div class="col-xl-12 col-md-12">
+                    <!-- Card 2 End  -->
+                    <div class="ap-po-details ap-po-details--2 p-30 radius-xl bg-white d-flex justify-content-between mb-25">
+                        <div>
+
+
+                            <div class="overview-content overview-content3">
+                                <div class="d-flex">
+                                    <div class="revenue-chart-box__Icon mr-20 order-bg-opacity-primary">
+                                        <img src="{% static 'img/svg/customer.svg' %}" alt="img" class="svg">
+                                    </div>
+                                    <div>
+                                        <h2>7,000</h2>
+                                        <p class="mb-3 mt-1">Total Students</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Card 2 End  -->
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="userDatatable orderDatatable global-shadow border py-30 px-sm-30 px-20 bg-white radius-xl w-100 mb-30">
+                        <div class="project-top-wrapper d-flex justify-content-between flex-wrap mb-25 mt-n10">
+                            <div class="d-flex align-items-center flex-wrap justify-content-center">
+                                <div class="project-search order-search  global-shadow mt-10">
+                                    <form action="/" class="order-search__form">
+                                        <span data-feather="search"></span>
+                                        <input class="form-control mr-sm-2 border-0 box-shadow-none" type="search"
+                                               placeholder="Filter by keyword" aria-label="Search">
+                                    </form>
+                                </div><!-- End: .project-search -->
+                            </div>
+                            <a href="#" class="btn px-15 btn-primary" data-toggle="modal" data-target="#new-member">
+                                <i class="las la-plus fs-16"></i>Add New Notification
+                            </a>
+
+                            <div class="countryOption" style="width:250px;border-radius: 3px;">
+                                <select class="js-example-basic-single js-states form-control" id="countryOption">
+                                    <option value="JAN">All</option>
+                                    <option value="FBR">Business</option>
+                                    <option value="FBR">Web Dev</option>
+                                </select>
+                            </div>
+
+
+                        </div><!-- End: .project-top-wrapper -->
+                        <div class="tab-content" id="ap-tabContent">
+                            <div class="tab-pane fade show active" id="ap-overview" role="tabpanel"
+                                 aria-labelledby="ap-overview-tab">
+                                <!-- Start Table Responsive -->
+                                <div class="table-responsive">
+                                    <table class="table mb-0 table-hover table-borderless border-0">
+                                        <thead>
+                                        <tr class="userDatatable-header" style="text-align:center">
+                                            <th>
+                                                <span class="userDatatable-title">Student name</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Student Id</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Email</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Receive Emails?</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Free courses</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Paid courses</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Spend</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Total Refund</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Total Spam send</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title float-right">Actions</span>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <div class="orderDatatable-title">
+                                                    <a href="single_student.html">Elzubair Mohammed</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title" style="text-align:center">
+                                                    16
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title" style="text-align:center">
+                                                    alzober1414@gmail.com
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title" style="text-align:center">
+                                                    Yes
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title" style="text-align:center">
+                                                    5
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title" style="text-align:center">
+                                                    3
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title" style="text-align:center">
+                                                    13
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title " style="text-align:center">
+                                                    2,220
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="orderDatatable-title " style="text-align:center">
+                                                    10
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                    <li>
+
+                                                        <div class="action-btn">
+                                                            <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                               class=" px-15" data-toggle="modal"
+                                                               data-target="#new-member">
+                                                                <span data-feather="send"></span></a>
+
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade add-contact" id="new-member"
+                                                                 role="dialog" tabindex="-1"
+                                                                 aria-labelledby="staticBackdropLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content radius-xl">
+                                                                        <div class="modal-header">
+                                                                            <h6 class="modal-title fw-500"
+                                                                                id="staticBackdropLabel">Send
+                                                                                notification</h6>
+                                                                            <button type="button" class="close"
+                                                                                    data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                <span data-feather="x"></span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="add-new-contact">
+                                                                                <form action="/">
+
+                                                                                    <div class="form-group mb-20">
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               placeholder="Notification title">
+                                                                                    </div>
+                                                                                    <div class="form-group mb-20">
+                                                                                        <textarea class="form-control"
+                                                                                                  id="exampleFormControlTextarea1"
+                                                                                                  rows="3"
+                                                                                                  placeholder="Notification description"></textarea>
+                                                                                    </div>
+
+                                                                                    <div class="button-group d-flex pt-20">
+
+
+                                                                                        <button class="btn btn-primary btn-default btn-squared ">
+                                                                                            Send notification
+                                                                                        </button>
+
+                                                                                        <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                            cancel
+                                                                                        </button>
+
+
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Modal -->
+
+
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="action-btn">
+                                                            <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                               class=" px-15" data-toggle="modal"
+                                                               data-target="#edit-student">
+                                                                <span data-feather="settings"></span></a>
+                                                            <!-- Modal -->
+                                                            <div class="modal fade new-member" id="edit-student"
+                                                                 role="dialog" tabindex="-1"
+                                                                 aria-labelledby="staticBackdropLabel"
+                                                                 aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content  radius-xl">
+                                                                        <div class="modal-header">
+                                                                            <h6 class="modal-title fw-500"
+                                                                                id="staticBackdropLabel">Edit
+                                                                                student</h6>
+                                                                            <button type="button" class="close"
+                                                                                    data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                <span data-feather="x"></span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="new-member-modal">
+                                                                                <form>
+
+                                                                                    <div class="form-group mb-20"
+                                                                                         style="width:30%;height:30%!important">
+                                                                                        <b>Change Profile pic</b>
+                                                                                        <label for="upload"
+                                                                                               class="file-upload__label"
+                                                                                               style="margin-bottom:10px">
+                                                                                            <img src="img/final-result.jpg"
+                                                                                                 alt="" width="100"
+                                                                                                 height="100">
+                                                                                        </label>
+                                                                                        <label for="upload"
+                                                                                               class="file-upload__label">
+                                                                                                                                                                                                                                                    <span class="upload-product-img px-10 d-block">
+                                                                                                                                                                                                                                                      <center>
+                                                                                                                                                                                                                                                        <span class="file-upload">
+                                                                                                                                                                                                                                                            <span data-feather="upload"></span>
+                                                                                                                                                                                                                                                            <input id="upload"
+                                                                                                                                                                                                                                                                   class="file-upload__input"
+                                                                                                                                                                                                                                                                   type="file"
+                                                                                                                                                                                                                                                                   name="file-upload">
+                                                                                                                                                                                                                                                        </span>
+                                                                                                                                                                                                                                                      </center>
+                                                                                                                                                                                                                                                    </span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="form-group mb-20">
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               value="Elzubair">
+                                                                                    </div>
+                                                                                    <div class="form-group mb-20">
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               value="Mohammed">
+                                                                                    </div>
+                                                                                    <div class="form-group mb-20">
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               value="alzober1414@gmail.com">
+                                                                                    </div>
+
+                                                                                    <div class="button-group d-flex pt-25">
+
+
+                                                                                        <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                                                                            Edit Student
+                                                                                        </button>
+
+
+                                                                                        <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                            cancel
+                                                                                        </button>
+
+
+                                                                                    </div>
+                                                                                </form>
+
+                                                                            </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="remove">
+                                        <span data-feather="trash-2" data-toggle="modal"
+                                              data-target="#modal-info-delete"></span></a>
+                                </li>
+                                </ul>
+                                </td>
+                                </tr>
+                                <!-- End: tr -->
+
+
+                                </tbody>
+                                </table>
+                            </div>
+                            <!-- Table Responsive End -->
+                        </div>
+                        <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
+                            <!-- Start Table Responsive -->
+                            <div class="table-responsive">
+                                <table class="table mb-0 table-hover table-borderless border-0">
+                                    <thead>
+                                    <tr class="userDatatable-header" style="text-align:center">
+                                        <th>
+                                            <span class="userDatatable-title">Student name</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Student Id</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Free courses</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Paid courses</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Spend</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Total Refund</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Report spam sending</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title float-right">Actions</span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                <a href="student.html"> Mohammed</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                16
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                5
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                3
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                13
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                2,220
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                <li>
+
+                                                    <div class="action-btn">
+                                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15" data-toggle="modal" data-target="#new-member">
+                                                            <span data-feather="send"></span></a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade new-member" id="new-member" role="dialog"
+                                                             tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                                             aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content  radius-xl">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title fw-500"
+                                                                            id="staticBackdropLabel">Create project</h6>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <span data-feather="x"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="new-member-modal">
+                                                                            <form>
+                                                                                <div class="form-group mb-20">
+                                                                                    <input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Duran Clayton">
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <div class="category-member">
+                                                                                        <select class="js-example-basic-single js-states form-control"
+                                                                                                id="category-member">
+                                                                                            <option value="JAN">1
+                                                                                            </option>
+                                                                                            <option value="FBR">2
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <textarea class="form-control"
+                                                                                              id="exampleFormControlTextarea1"
+                                                                                              rows="3"
+                                                                                              placeholder="Project description"></textarea>
+                                                                                </div>
+                                                                                <div class="form-group textarea-group">
+                                                                                    <label class="mb-15">status</label>
+                                                                                    <div class="d-flex">
+                                                                                        <div class="project-task-list__left d-flex align-items-center">
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-1"
+                                                                                                           checked>
+                                                                                                    <label for="check-grp-1"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        status
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-2">
+                                                                                                    <label for="check-grp-2"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        Deactivated
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-3">
+                                                                                                    <label for="check-grp-3"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        bloked
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-25">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label for="name47">project
+                                                                                            member</label>
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               id="name47"
+                                                                                               placeholder="Search members">
+                                                                                    </div>
+                                                                                    <ul class="d-flex flex-wrap mb-20 user-group-people__parent">
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm1.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm2.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm3.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm4.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm5.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="d-flex new-member-calendar">
+                                                                                    <div class="form-group w-100 mr-sm-15 form-group-calender">
+                                                                                        <label for="datepicker">start
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group w-100 form-group-calender">
+                                                                                        <label for="datepicker2">End
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker2"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="button-group d-flex pt-25">
+
+
+                                                                                    <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                                                                        add new project
+                                                                                    </button>
+
+
+                                                                                    <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                        cancel
+                                                                                    </button>
+
+
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="remove">
+                                                        <span data-feather="trash-2"></span></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <!-- End: tr -->
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Table Responsive End -->
+
+                        </div>
+                        <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
+                            <!-- Start Table Responsive -->
+                            <div class="table-responsive">
+                                <table class="table mb-0 table-hover table-borderless border-0">
+                                    <thead>
+                                    <tr class="userDatatable-header" style="text-align:center">
+                                        <th>
+                                            <span class="userDatatable-title">Student name</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Student Id</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Free courses</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Paid courses</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Spend</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Total Refund</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title float-right">Actions</span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                <a href="student.html">Elzubair Mohammed</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                16
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                5
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                3
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                2,220
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                <li>
+
+                                                    <div class="action-btn">
+                                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15" data-toggle="modal" data-target="#new-member">
+                                                            <span data-feather="send"></span></a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade new-member" id="new-member" role="dialog"
+                                                             tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                                             aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content  radius-xl">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title fw-500"
+                                                                            id="staticBackdropLabel">Create project</h6>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <span data-feather="x"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="new-member-modal">
+                                                                            <form>
+                                                                                <div class="form-group mb-20">
+                                                                                    <input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Duran Clayton">
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <div class="category-member">
+                                                                                        <select class="js-example-basic-single js-states form-control"
+                                                                                                id="category-member">
+                                                                                            <option value="JAN">1
+                                                                                            </option>
+                                                                                            <option value="FBR">2
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <textarea class="form-control"
+                                                                                              id="exampleFormControlTextarea1"
+                                                                                              rows="3"
+                                                                                              placeholder="Project description"></textarea>
+                                                                                </div>
+                                                                                <div class="form-group textarea-group">
+                                                                                    <label class="mb-15">status</label>
+                                                                                    <div class="d-flex">
+                                                                                        <div class="project-task-list__left d-flex align-items-center">
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-1"
+                                                                                                           checked>
+                                                                                                    <label for="check-grp-1"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        status
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-2">
+                                                                                                    <label for="check-grp-2"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        Deactivated
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-3">
+                                                                                                    <label for="check-grp-3"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        bloked
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-25">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label for="name47">project
+                                                                                            member</label>
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               id="name47"
+                                                                                               placeholder="Search members">
+                                                                                    </div>
+                                                                                    <ul class="d-flex flex-wrap mb-20 user-group-people__parent">
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm1.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm2.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm3.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm4.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm5.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="d-flex new-member-calendar">
+                                                                                    <div class="form-group w-100 mr-sm-15 form-group-calender">
+                                                                                        <label for="datepicker">start
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group w-100 form-group-calender">
+                                                                                        <label for="datepicker2">End
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker2"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="button-group d-flex pt-25">
+
+
+                                                                                    <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                                                                        add new project
+                                                                                    </button>
+
+
+                                                                                    <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                        cancel
+                                                                                    </button>
+
+
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="remove">
+                                                        <span data-feather="trash-2"></span></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <!-- End: tr -->
+
+                                    <tr>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                Elzubair Mohammed
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                16
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                5
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                3
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                2,220
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                <li>
+
+                                                    <div class="action-btn">
+                                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15" data-toggle="modal" data-target="#new-member">
+                                                            <span data-feather="send"></span></a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade new-member" id="new-member" role="dialog"
+                                                             tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                                             aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content  radius-xl">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title fw-500"
+                                                                            id="staticBackdropLabel">Create project</h6>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <span data-feather="x"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="new-member-modal">
+                                                                            <form>
+                                                                                <div class="form-group mb-20">
+                                                                                    <input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Duran Clayton">
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <div class="category-member">
+                                                                                        <select class="js-example-basic-single js-states form-control"
+                                                                                                id="category-member">
+                                                                                            <option value="JAN">1
+                                                                                            </option>
+                                                                                            <option value="FBR">2
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <textarea class="form-control"
+                                                                                              id="exampleFormControlTextarea1"
+                                                                                              rows="3"
+                                                                                              placeholder="Project description"></textarea>
+                                                                                </div>
+                                                                                <div class="form-group textarea-group">
+                                                                                    <label class="mb-15">status</label>
+                                                                                    <div class="d-flex">
+                                                                                        <div class="project-task-list__left d-flex align-items-center">
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-1"
+                                                                                                           checked>
+                                                                                                    <label for="check-grp-1"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        status
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-2">
+                                                                                                    <label for="check-grp-2"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        Deactivated
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-3">
+                                                                                                    <label for="check-grp-3"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        bloked
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-25">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label for="name47">project
+                                                                                            member</label>
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               id="name47"
+                                                                                               placeholder="Search members">
+                                                                                    </div>
+                                                                                    <ul class="d-flex flex-wrap mb-20 user-group-people__parent">
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm1.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm2.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm3.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm4.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm5.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="d-flex new-member-calendar">
+                                                                                    <div class="form-group w-100 mr-sm-15 form-group-calender">
+                                                                                        <label for="datepicker">start
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group w-100 form-group-calender">
+                                                                                        <label for="datepicker2">End
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker2"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="button-group d-flex pt-25">
+
+
+                                                                                    <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                                                                        add new project
+                                                                                    </button>
+
+
+                                                                                    <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                        cancel
+                                                                                    </button>
+
+
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="remove">
+                                                        <span data-feather="trash-2"></span></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <!-- End: tr -->
+
+                                    <tr>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                Elzubair Mohammed
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                16
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                5
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                3
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                2,220
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                <li>
+
+                                                    <div class="action-btn">
+                                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15" data-toggle="modal" data-target="#new-member">
+                                                            <span data-feather="send"></span></a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade new-member" id="new-member" role="dialog"
+                                                             tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                                             aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content  radius-xl">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title fw-500"
+                                                                            id="staticBackdropLabel">Create project</h6>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <span data-feather="x"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="new-member-modal">
+                                                                            <form>
+                                                                                <div class="form-group mb-20">
+                                                                                    <input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Duran Clayton">
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <div class="category-member">
+                                                                                        <select class="js-example-basic-single js-states form-control"
+                                                                                                id="category-member">
+                                                                                            <option value="JAN">1
+                                                                                            </option>
+                                                                                            <option value="FBR">2
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <textarea class="form-control"
+                                                                                              id="exampleFormControlTextarea1"
+                                                                                              rows="3"
+                                                                                              placeholder="Project description"></textarea>
+                                                                                </div>
+                                                                                <div class="form-group textarea-group">
+                                                                                    <label class="mb-15">status</label>
+                                                                                    <div class="d-flex">
+                                                                                        <div class="project-task-list__left d-flex align-items-center">
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-1"
+                                                                                                           checked>
+                                                                                                    <label for="check-grp-1"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        status
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-2">
+                                                                                                    <label for="check-grp-2"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        Deactivated
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-3">
+                                                                                                    <label for="check-grp-3"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        bloked
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-25">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label for="name47">project
+                                                                                            member</label>
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               id="name47"
+                                                                                               placeholder="Search members">
+                                                                                    </div>
+                                                                                    <ul class="d-flex flex-wrap mb-20 user-group-people__parent">
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm1.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm2.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm3.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm4.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm5.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="d-flex new-member-calendar">
+                                                                                    <div class="form-group w-100 mr-sm-15 form-group-calender">
+                                                                                        <label for="datepicker">start
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group w-100 form-group-calender">
+                                                                                        <label for="datepicker2">End
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker2"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="button-group d-flex pt-25">
+
+
+                                                                                    <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                                                                        add new project
+                                                                                    </button>
+
+
+                                                                                    <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                        cancel
+                                                                                    </button>
+
+
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="remove">
+                                                        <span data-feather="trash-2"></span></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <!-- End: tr -->
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Table Responsive End -->
+                        </div>
+                        <div class="tab-pane fade" id="draft" role="tabpanel" aria-labelledby="draft-tab">
+                            <!-- Start Table Responsive -->
+                            <div class="table-responsive">
+                                <table class="table mb-0 table-hover table-borderless border-0">
+                                    <thead>
+                                    <tr class="userDatatable-header" style="text-align:center">
+                                        <th>
+                                            <span class="userDatatable-title">Student name</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Student Id</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Free courses</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Paid courses</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Spend</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title">Total Refund</span>
+                                        </th>
+                                        <th>
+                                            <span class="userDatatable-title float-right">Actions</span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                Elzubair Mohammed
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                16
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                5
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                3
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                2,220
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                <li>
+
+                                                    <div class="action-btn">
+                                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15" data-toggle="modal" data-target="#new-member">
+                                                            <span data-feather="send"></span></a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade new-member" id="new-member" role="dialog"
+                                                             tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                                             aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content  radius-xl">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title fw-500"
+                                                                            id="staticBackdropLabel">Create project</h6>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <span data-feather="x"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="new-member-modal">
+                                                                            <form>
+                                                                                <div class="form-group mb-20">
+                                                                                    <input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Duran Clayton">
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <div class="category-member">
+                                                                                        <select class="js-example-basic-single js-states form-control"
+                                                                                                id="category-member">
+                                                                                            <option value="JAN">1
+                                                                                            </option>
+                                                                                            <option value="FBR">2
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <textarea class="form-control"
+                                                                                              id="exampleFormControlTextarea1"
+                                                                                              rows="3"
+                                                                                              placeholder="Project description"></textarea>
+                                                                                </div>
+                                                                                <div class="form-group textarea-group">
+                                                                                    <label class="mb-15">status</label>
+                                                                                    <div class="d-flex">
+                                                                                        <div class="project-task-list__left d-flex align-items-center">
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-1"
+                                                                                                           checked>
+                                                                                                    <label for="check-grp-1"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        status
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-2">
+                                                                                                    <label for="check-grp-2"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        Deactivated
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-3">
+                                                                                                    <label for="check-grp-3"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        bloked
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-25">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label for="name47">project
+                                                                                            member</label>
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               id="name47"
+                                                                                               placeholder="Search members">
+                                                                                    </div>
+                                                                                    <ul class="d-flex flex-wrap mb-20 user-group-people__parent">
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm1.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm2.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm3.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm4.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm5.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="d-flex new-member-calendar">
+                                                                                    <div class="form-group w-100 mr-sm-15 form-group-calender">
+                                                                                        <label for="datepicker">start
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group w-100 form-group-calender">
+                                                                                        <label for="datepicker2">End
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker2"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="button-group d-flex pt-25">
+
+
+                                                                                    <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                                                                        add new project
+                                                                                    </button>
+
+
+                                                                                    <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                        cancel
+                                                                                    </button>
+
+
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="remove">
+                                                        <span data-feather="trash-2"></span></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <!-- End: tr -->
+
+                                    <tr>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                Elzubair Mohammed
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                16
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                5
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                3
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                2,220
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                <li>
+
+                                                    <div class="action-btn">
+                                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15" data-toggle="modal" data-target="#new-member">
+                                                            <span data-feather="send"></span></a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade new-member" id="new-member" role="dialog"
+                                                             tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                                             aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content  radius-xl">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title fw-500"
+                                                                            id="staticBackdropLabel">Create project</h6>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <span data-feather="x"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="new-member-modal">
+                                                                            <form>
+                                                                                <div class="form-group mb-20">
+                                                                                    <input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Duran Clayton">
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <div class="category-member">
+                                                                                        <select class="js-example-basic-single js-states form-control"
+                                                                                                id="category-member">
+                                                                                            <option value="JAN">1
+                                                                                            </option>
+                                                                                            <option value="FBR">2
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <textarea class="form-control"
+                                                                                              id="exampleFormControlTextarea1"
+                                                                                              rows="3"
+                                                                                              placeholder="Project description"></textarea>
+                                                                                </div>
+                                                                                <div class="form-group textarea-group">
+                                                                                    <label class="mb-15">status</label>
+                                                                                    <div class="d-flex">
+                                                                                        <div class="project-task-list__left d-flex align-items-center">
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-1"
+                                                                                                           checked>
+                                                                                                    <label for="check-grp-1"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        status
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-2">
+                                                                                                    <label for="check-grp-2"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        Deactivated
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-3">
+                                                                                                    <label for="check-grp-3"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        bloked
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-25">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label for="name47">project
+                                                                                            member</label>
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               id="name47"
+                                                                                               placeholder="Search members">
+                                                                                    </div>
+                                                                                    <ul class="d-flex flex-wrap mb-20 user-group-people__parent">
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm1.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm2.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm3.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm4.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm5.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="d-flex new-member-calendar">
+                                                                                    <div class="form-group w-100 mr-sm-15 form-group-calender">
+                                                                                        <label for="datepicker">start
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group w-100 form-group-calender">
+                                                                                        <label for="datepicker2">End
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker2"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="button-group d-flex pt-25">
+
+
+                                                                                    <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                                                                        add new project
+                                                                                    </button>
+
+
+                                                                                    <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                        cancel
+                                                                                    </button>
+
+
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="remove">
+                                                        <span data-feather="trash-2"></span></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <!-- End: tr -->
+
+                                    <tr>
+                                        <td>
+                                            <div class="orderDatatable-title">
+                                                Elzubair Mohammed
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                16
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                5
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title" style="text-align:center">
+                                                3
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                2,220
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="orderDatatable-title " style="text-align:center">
+                                                10
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                                <li>
+
+                                                    <div class="action-btn">
+                                                        <a href="#" style="width: 50px !important;margin-right:-5px"
+                                                           class=" px-15" data-toggle="modal" data-target="#new-member">
+                                                            <span data-feather="send"></span></a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade new-member" id="new-member" role="dialog"
+                                                             tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                                             aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content  radius-xl">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title fw-500"
+                                                                            id="staticBackdropLabel">Create project</h6>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <span data-feather="x"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="new-member-modal">
+                                                                            <form>
+                                                                                <div class="form-group mb-20">
+                                                                                    <input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Duran Clayton">
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <div class="category-member">
+                                                                                        <select class="js-example-basic-single js-states form-control"
+                                                                                                id="category-member">
+                                                                                            <option value="JAN">1
+                                                                                            </option>
+                                                                                            <option value="FBR">2
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group mb-20">
+                                                                                    <textarea class="form-control"
+                                                                                              id="exampleFormControlTextarea1"
+                                                                                              rows="3"
+                                                                                              placeholder="Project description"></textarea>
+                                                                                </div>
+                                                                                <div class="form-group textarea-group">
+                                                                                    <label class="mb-15">status</label>
+                                                                                    <div class="d-flex">
+                                                                                        <div class="project-task-list__left d-flex align-items-center">
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-1"
+                                                                                                           checked>
+                                                                                                    <label for="check-grp-1"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        status
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex mr-50 pr-10">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-2">
+                                                                                                    <label for="check-grp-2"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        Deactivated
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="checkbox-group d-flex">
+                                                                                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                                                                                    <input class="checkbox"
+                                                                                                           type="checkbox"
+                                                                                                           id="check-grp-3">
+                                                                                                    <label for="check-grp-3"
+                                                                                                           class="fs-14 color-light strikethrough">
+                                                                                                        bloked
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-25">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label for="name47">project
+                                                                                            member</label>
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               id="name47"
+                                                                                               placeholder="Search members">
+                                                                                    </div>
+                                                                                    <ul class="d-flex flex-wrap mb-20 user-group-people__parent">
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm1.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm2.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm3.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm4.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"><img
+                                                                                                    class="rounded-circle wh-34"
+                                                                                                    src="img/tm5.png"
+                                                                                                    alt="author"></a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="d-flex new-member-calendar">
+                                                                                    <div class="form-group w-100 mr-sm-15 form-group-calender">
+                                                                                        <label for="datepicker">start
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group w-100 form-group-calender">
+                                                                                        <label for="datepicker2">End
+                                                                                            Date</label>
+                                                                                        <div class="position-relative">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="datepicker2"
+                                                                                                   placeholder="mm/dd/yyyy">
+                                                                                            <a href="#">
+                                                                                                <span data-feather="calendar"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="button-group d-flex pt-25">
+
+
+                                                                                    <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                                                                        add new project
+                                                                                    </button>
+
+
+                                                                                    <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light">
+                                                                                        cancel
+                                                                                    </button>
+
+
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="remove">
+                                                        <span data-feather="trash-2"></span></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <!-- End: tr -->
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Table Responsive End -->
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-sm-end justify-content-start mt-15 pt-25 border-top">
+
+                        <nav class="atbd-page ">
+                            <ul class="atbd-pagination d-flex">
+                                <li class="atbd-pagination__item">
+                                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                                            class="la la-angle-left"></span></a>
+                                    <a href="#" class="atbd-pagination__link"><span class="page-number">1</span></a>
+                                    <a href="#" class="atbd-pagination__link active"><span class="page-number">2</span></a>
+                                    <a href="#" class="atbd-pagination__link"><span class="page-number">3</span></a>
+                                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                                            class="page-number">...</span></a>
+                                    <a href="#" class="atbd-pagination__link"><span class="page-number">12</span></a>
+                                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                                            class="la la-angle-right"></span></a>
+                                    <a href="#" class="atbd-pagination__option">
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                </div><!-- End: .userDatatable -->
+            </div><!-- End: .col -->
+
+
+        </div>
+    </div>
+{% endblock %}

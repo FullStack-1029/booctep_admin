@@ -1,0 +1,556 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    {% load static %}
+    <div class="contents">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Financial Performance Dashboard</h4>
+                    </div>
+
+                </div>
+
+
+                <div class="col-xl-6 col-lg-12 mb-25">
+
+                    <div class="card revenueChartTwo broder-0">
+                        <div class="card-header">
+                            <h6>Sales</h6>
+                            <div class="card-extra">
+                                <ul class="card-tab-links mr-3 nav-tabs nav" role="tablist">
+                                    <li>
+                                        <a class="active" href="#tl_revenue-today" data-toggle="tab"
+                                           id="tl_revenue-today-tab" role="tab" aria-selected="false">Today</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tl_revenue-week" data-toggle="tab" id="tl_revenue-week-tab" role="tab"
+                                           aria-selected="false">Week</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tl_revenue-month" data-toggle="tab" id="tl_revenue-month-tab"
+                                           role="tab" aria-selected="false">Month</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tl_revenue-year" data-toggle="tab" id="tl_revenue-year-tab" role="tab"
+                                           aria-selected="true">Year</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tl_revenue-year" data-toggle="tab" id="tl_revenue-year-tab" role="tab"
+                                           aria-selected="true">All time</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body pt-0 px-20">
+                            <div class="tab-content">
+                                <div class="tab-pane fade active show" id="tl_revenue-today" role="tabpanel"
+                                     aria-labelledby="tl_revenue-today-tab">
+                                    <div class="cashflow-display cashflow-display2 d-flex">
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">Today Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-success fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-up"></i> <strong>15%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">Yesterday Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-danger fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-down"></i> <strong>12%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                    </div>
+                                    <!-- ends: .performance-stats -->
+                                </div>
+                                <div class="tab-pane fade" id="tl_revenue-week" role="tabpanel"
+                                     aria-labelledby="tl_revenue-week-tab">
+                                    <div class="cashflow-display cashflow-display2 d-flex">
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">This Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-success fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-up"></i> <strong>15%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">Last Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-danger fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-down"></i> <strong>12%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                    </div>
+                                    <!-- ends: .performance-stats -->
+
+                                </div>
+                                <div class="tab-pane fade" id="tl_revenue-month" role="tabpanel"
+                                     aria-labelledby="tl_revenue-month-tab">
+                                    <div class="cashflow-display cashflow-display2 d-flex">
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">This Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-success fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-up"></i> <strong>15%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">Last Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-danger fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-down"></i> <strong>12%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                    </div>
+                                    <!-- ends: .performance-stats -->
+
+                                </div>
+                                <div class="tab-pane fade" id="tl_revenue-year" role="tabpanel"
+                                     aria-labelledby="tl_revenue-year-tab">
+                                    <div class="cashflow-display cashflow-display2 d-flex">
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">This Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-success fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-up"></i> <strong>15%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                    </div>
+                                    <!-- ends: .performance-stats -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ends: .card-body -->
+                    </div>
+
+                </div>
+
+
+                <div class="col-xl-6 col-lg-12 mb-25">
+
+                    <div class="card revenueChartTwo broder-0">
+                        <div class="card-header">
+                            <h6>Costs of good sold</h6>
+                            <div class="card-extra">
+                                <ul class="card-tab-links mr-3 nav-tabs nav" role="tablist">
+                                    <li>
+                                        <a class="active" href="#tl_revenue-today" data-toggle="tab"
+                                           id="tl_revenue-today-tab" role="tab" aria-selected="false">Today</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tl_revenue-week" data-toggle="tab" id="tl_revenue-week-tab" role="tab"
+                                           aria-selected="false">Week</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tl_revenue-month" data-toggle="tab" id="tl_revenue-month-tab"
+                                           role="tab" aria-selected="false">Month</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tl_revenue-year" data-toggle="tab" id="tl_revenue-year-tab" role="tab"
+                                           aria-selected="true">Year</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tl_revenue-year" data-toggle="tab" id="tl_revenue-year-tab" role="tab"
+                                           aria-selected="true">All time</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body pt-0 px-20">
+                            <div class="tab-content">
+                                <div class="tab-pane fade active show" id="tl_revenue-today" role="tabpanel"
+                                     aria-labelledby="tl_revenue-today-tab">
+                                    <div class="cashflow-display cashflow-display2 d-flex">
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">This Month</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-success fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-up"></i> <strong>15%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">Last Month</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-danger fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-down"></i> <strong>12%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                    </div>
+                                    <!-- ends: .performance-stats -->
+                                </div>
+                                <div class="tab-pane fade" id="tl_revenue-week" role="tabpanel"
+                                     aria-labelledby="tl_revenue-week-tab">
+                                    <div class="cashflow-display cashflow-display2 d-flex">
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">This Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-success fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-up"></i> <strong>15%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">Last Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-danger fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-down"></i> <strong>12%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                    </div>
+                                    <!-- ends: .performance-stats -->
+
+                                </div>
+                                <div class="tab-pane fade" id="tl_revenue-month" role="tabpanel"
+                                     aria-labelledby="tl_revenue-month-tab">
+                                    <div class="cashflow-display cashflow-display2 d-flex">
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">This Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-success fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-up"></i> <strong>15%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">Last Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-danger fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-down"></i> <strong>12%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                    </div>
+                                    <!-- ends: .performance-stats -->
+
+                                </div>
+                                <div class="tab-pane fade" id="tl_revenue-year" role="tabpanel"
+                                     aria-labelledby="tl_revenue-year-tab">
+                                    <div class="cashflow-display cashflow-display2 d-flex">
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">This Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-success fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-up"></i> <strong>15%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                        <div class="cashflow-display__single">
+                                            <span class="cashflow-display__title">Last Month Revenue</span>
+                                            <h3 class="cashflow-display__amount">$28.4k<span
+                                                    class="color-danger fs-14 fw-600 mr-10"><i
+                                                    class="las la-arrow-down"></i> <strong>12%</strong></span></h3>
+                                        </div>
+                                        <!-- ends: .cashflow-display__single -->
+                                    </div>
+                                    <!-- ends: .performance-stats -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ends: .card-body -->
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 mb-25">
+
+                    <div class="card broder-0">
+                        <div class="card-header">
+                            <h6>Income And Expenses<span>Nov 23, 2019 - Nov 29, 2019</span></h6>
+                            <div class="card-extra">
+                                <ul class="card-tab-links mr-3 nav-tabs nav" role="tablist">
+                                    <li>
+                                        <a href="#incExp-week" data-toggle="tab" id="incExp-week-tab" role="tab"
+                                           aria-selected="true">Today</a>
+                                    </li>
+                                    <li>
+                                        <a href="#incExp-week" data-toggle="tab" id="incExp-week-tab" role="tab"
+                                           aria-selected="true">Week</a>
+                                    </li>
+                                    <li>
+                                        <a href="#incExp-month" data-toggle="tab" id="incExp-month-tab" role="tab"
+                                           aria-selected="true">Month</a>
+                                    </li>
+                                    <li>
+                                        <a href="#incExp-year" class="active" data-toggle="tab" id="incExp-year-tab"
+                                           role="tab" aria-selected="true">Year</a>
+                                    </li>
+                                    <li>
+                                        <a href="#incExp-week" data-toggle="tab" id="incExp-week-tab" role="tab"
+                                           aria-selected="true">All time</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body pt-0 pb-0">
+                            <div class="tab-content">
+                                <div class="tab-pane fade" id="incExp-week" role="tabpanel"
+                                     aria-labelledby="incExp-week-tab">
+                                    <div class="inEx-wrap d-flex">
+                                        <div class="inEx-box">
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Revenue</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$4,820</h3>
+                                                    <span class="inEx-tail color-light">
+
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>37%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Gross</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$4,820</h3>
+                                                    <span class="inEx-tail color-light">
+                                                          <span class="inEx__percentage color-danger">
+                                                              <span data-feather="arrow-down"></span>25%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Expenses</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$2,143</h3>
+                                                    <span class="inEx-tail color-light">
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>25%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Net profit</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$2,727</h3>
+                                                    <span class="inEx-tail color-light">
+
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>17%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                        </div>
+                                        <div class="inEx-chart">
+                                            <div class="parentContainer">
+
+
+                                                <div>
+                                                    <canvas id="barChartInEx_W"></canvas>
+                                                </div>
+
+
+                                            </div>
+                                            <ul class="legend-static">
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(95, 99, 242);"></span>Revenue
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(255, 105, 165);"></span>Gross
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(250, 139, 12);"></span>Expenses
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(32, 201, 151);"></span>Net profit
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="incExp-month" role="tabpanel"
+                                     aria-labelledby="incExp-month-tab">
+                                    <div class="inEx-wrap d-flex">
+                                        <div class="inEx-box">
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Revenue</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$74,820</h3>
+                                                    <span class="inEx-tail color-light">
+
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>37%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Gross</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$74,820</h3>
+                                                    <span class="inEx-tail color-light">
+                                                          <span class="inEx__percentage color-danger">
+                                                              <span data-feather="arrow-down"></span>25%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Expenses</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$32,143</h3>
+                                                    <span class="inEx-tail color-light">
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>25%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Net profit</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$52,727</h3>
+                                                    <span class="inEx-tail color-light">
+
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>17%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                        </div>
+                                        <div class="inEx-chart">
+                                            <div class="parentContainer">
+
+
+                                                <div>
+                                                    <canvas id="barChartInEx_M"></canvas>
+                                                </div>
+
+
+                                            </div>
+                                            <ul class="legend-static">
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(95, 99, 242);"></span>Revenue
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(255, 105, 165);"></span>Gross
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(250, 139, 12);"></span>Expenses
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(32, 201, 151);"></span>Net profit
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade active show" id="incExp-year" role="tabpanel"
+                                     aria-labelledby="incExp-year-tab">
+                                    <div class="inEx-wrap d-flex">
+                                        <div class="inEx-box">
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Revenue</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$274,820</h3>
+                                                    <span class="inEx-tail color-light">
+
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>37%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Gross</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$274,820</h3>
+                                                    <span class="inEx-tail color-light">
+                                                          <span class="inEx__percentage color-danger">
+                                                              <span data-feather="arrow-down"></span>25%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Expenses</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$532,143</h3>
+                                                    <span class="inEx-tail color-light">
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>25%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                            <div class="inEx__single">
+                                                <span class="inEx-subtitle">Net profit</span>
+                                                <div class="inEx__info d-flex align-items-end">
+                                                    <h3 class="inEx__title">$252,727</h3>
+                                                    <span class="inEx-tail color-light">
+
+                                                          <span class="inEx__percentage color-success">
+                                                              <span data-feather="arrow-up"></span>17%</span>
+                                                          Since last month
+                                                      </span>
+                                                </div>
+                                            </div>
+                                            <!-- ends: .inEx__single -->
+                                        </div>
+                                        <div class="inEx-chart">
+                                            <div class="parentContainer">
+
+
+                                                <div>
+                                                    <canvas id="barChartInEx"></canvas>
+                                                </div>
+
+
+                                            </div>
+                                            <ul class="legend-static">
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(95, 99, 242);"></span>Revenue
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(255, 105, 165);"></span>Gross
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(250, 139, 12);"></span>expenses
+                                                </li>
+                                                <li style="display: inline-flex; align-items: center;">
+                                                    <span style="background-color: rgb(32, 201, 151);"></span>Net profit
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ends: .card-body -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
