@@ -23,7 +23,7 @@
                                     <img src="{% static 'img/svg/customer.svg' %}" alt="img" class="svg">
                                 </div>
                                 <div>
-                                    <h2 id="course_count">7</h2>
+                                    <h2 id="awaiting_count">{{ awaiting_count }}</h2>
                                     <p class="mb-3 mt-1">New Courses</p>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                     <img src="{% static 'img/svg/profit.svg' %}" alt="img" class="svg">
                                 </div>
                                 <div>
-                                    <h2>5</h2>
+                                    <h2 id="approved_count">{{ approved_count }}</h2>
                                     <p class="mb-3 mt-1">Paid Courses</p>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                     <img src="{% static 'img/svg/customer.svg' %}" alt="img" class="svg">
                                 </div>
                                 <div>
-                                    <h2>2</h2>
+                                    <h2 id="canceled_count">{{ canceled_count }}</h2>
                                     <p class="mb-3 mt-1">Free Courses</p>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                     <span data-feather="search"></span>
                                     <input class="form-control mr-sm-2 border-0 box-shadow-none" type="search"
                                            placeholder="Filter by keyword" id="search" name="search"
-                                           aria-label="Search">
+                                           aria-label="Search" value="{{ search }}">
                                     <input type="hidden" name="type" id="type" value="{{ type }}">
                                     <input type="hidden" name="page" id="page" value="{{ page }}">
                                 </form>
@@ -94,26 +94,20 @@
                                 <div class="project-tap order-project-tap global-shadow">
                                     <ul class="nav px-1" id="ap-tab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link {% if type == 1 %} active {% endif %}" href="#"
-                                               id="ap-overview-tab" data-toggle="pill"
-                                               role="tab" aria-controls="ap-overview" onclick="setTabAll()"
-                                               aria-selected="true">All</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link {% if type == 2 %} active {% endif %}" id="timeline-tab"
+                                            <a class="nav-link {% if type == 1 %} active {% endif %}" id="timeline-tab"
                                                data-toggle="pill" href="#"
                                                role="tab" aria-controls="timeline" onclick="setTabAwaiting()"
                                                aria-selected="false">Awaiting
                                                 For review</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link {% if type == 3 %} active {% endif %}" id="activity-tab"
+                                            <a class="nav-link {% if type == 2 %} active {% endif %}" id="activity-tab"
                                                data-toggle="pill" href="#"
                                                role="tab" aria-controls="activity" onclick="setTabApproved()"
                                                aria-selected="false">Approved</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link {% if type == 4 %} active {% endif %}" id="draft-tab"
+                                            <a class="nav-link {% if type == 3 %} active {% endif %}" id="draft-tab"
                                                data-toggle="pill" href="#"
                                                onclick="setTabCanceled()"
                                                role="tab" aria-controls="draft" aria-selected="false">Canceled</a>
@@ -161,7 +155,7 @@
                                         </td>
                                         <td>
                                             <div class="orderDatatable-title">
-                                                {{ course.user.first_name }} {{ course.user.last_name }}
+                                                {{ course.user_name }}
                                             </div>
                                         </td>
                                         <td>
@@ -190,7 +184,8 @@
 
                                         <td>
                                             <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right"
-                                                data-course="{{ course.id }}" data-user="{{ course.user_id }}">
+                                                data-course="{{ course.id }}" data-user="{{ course.user_id }}"
+                                                data-src="{{ course.video_url }}">
                                                 <li>
                                                     <div class="action-btn">
                                                         <a href="#" style="width: 50px !important;margin-right:-5px"
@@ -200,7 +195,7 @@
                                                 </li>
                                                 <li>
                                                     <div class="action-btn">
-                                                        <a href="http://localhost:8000/static{{ course.course_url }}"
+                                                        <a href="#" onclick="showVideo(this)"
                                                            style="width: 50px !important;margin-right:-5px"
                                                            class=" px-15">
                                                             <span data-feather="eye"></span></a>
@@ -230,23 +225,45 @@
                     </div>
                     {% if courses.has_other_pages %}
                     <div class="d-flex justify-content-sm-end justify-content-start mt-15 pt-25 border-top">
-                        <nav class="atbd-page">
+                        <nav class="atbd-page ">
                             <ul class="atbd-pagination d-flex">
                                 <li class="atbd-pagination__item">
-                                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                                    {% if courses.has_previous %}
+                                    <a href="#" onclick="page_prev()"
+                                       class="atbd-pagination__link pagination-control"><span
                                             class="la la-angle-left"></span></a>
-                                    <a href="#" class="atbd-pagination__link"><span class="page-number">1</span></a>
-                                    <a href="#" class="atbd-pagination__link active"><span
-                                            class="page-number">2</span></a>
-                                    <a href="#" class="atbd-pagination__link"><span class="page-number">3</span></a>
-                                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                                    {% else %}
+                                    <a href="#" class="atbd-pagination__link pagination-control"
+                                       style="cursor: not-allowed; background: white;"><span
+                                            class="la la-angle-left"></span></a>
+                                    {% endif %}
+                                    {% for i in courses.paginator.page_range %}
+                                    {% if courses.number == i %}
+                                    <a href="#" onclick="page_set('{{ i }}')" class="atbd-pagination__link active"><span
+                                            class="page-number">{{ i }}</span></a>
+                                    {% else %}
+                                    <a href="#" onclick="page_set('{{ i }}')" class="atbd-pagination__link"><span
+                                            class="page-number">{{ i }}</span></a>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% if courses.has_next %}
+                                    <a href="#" onclick="page_next()"
+                                       class="atbd-pagination__link pagination-control"><span
                                             class="la la-angle-right"></span></a>
+                                    {% else %}
+                                    <a href="#" class="atbd-pagination__link pagination-control"
+                                       style="cursor: not-allowed; background: white;"><span
+                                            class="la la-angle-right"></span></a>
+                                    {% endif %}
                                     <a href="#" class="atbd-pagination__option">
                                     </a>
                                 </li>
                             </ul>
                         </nav>
-                        {% endif %}
+
+
+                    </div>
+                    {% endif %}
 
 
                     </div>
@@ -305,13 +322,50 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade new-member" id="show-video"
+     role="dialog" tabindex="-1"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content  radius-xl">
+            <div class="modal-header">
+                <h6 class="modal-title fw-500">View the Test
+                    video</h6>
+                <button type="button" class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span data-feather="x"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="new-member-modal">
+                    <form>
+                        <div class="changelog__according">
+                            <div class="changelog__accordingWrapper" id="videoTagList">
+
+                            </div>
+                        </div>
+                        <div class="button-group d-flex pt-25">
+                            <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                                Ok
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal -->
 {% endblock %}
 {% block script %}
 <script>
 
     let added_list = [];
-    let cur_user, cur_course;
+    let cur_user, cur_course, cur_page;
+    cur_page = '{{ page }}';
 
     $(function () {
         $('#search').keypress(evt => {
@@ -493,14 +547,56 @@
                     </tr>`;
         })
         $('#awaiting_course').append(html1)
-        let count = parseInt($('#course_count').html())
-        $('#course_count').html(count + 1)
+        let count = parseInt($('#awaiting_count').html())
+        $('#awaiting_count').html(count + 1)
     }
 
     const addNotiModal = obj => {
         $('#add-noti').modal('show')
-        cur_user = $(obj).parent().parent().data('user')
-        cur_course = $(obj).parent().paren t().data('course')
+        cur_user = $(obj).parent().parent().parent().data('user')
+        cur_course = $(obj).parent().parent().parent().data('course')
+    }
+
+    const showVideo = obj => {
+        $('#show-video').modal('show')
+        let url = $(obj).parent().parent().parent().data('src')
+        urlList = url.split(',')
+        let html = ''
+        let key = 0
+        urlList.forEach(ele => {
+            html += `<div id="accordion">
+                <div class="card">
+                    <div class="card-header w-100 px-sm-10 px-5">
+                        <div role="button"
+                             class="w-100 changelog__accordingCollapsed collapsed"
+                             data-toggle="collapse"
+                             data-target="#collapse` + key + `"
+                             aria-expanded="true"
+                             aria-controls="collapse` + key + `">
+                            <div class="changelog__accordingTitle d-flex justify-content-between w-100">
+                                <div class="v-num">
+                                    <span class="rl-date">Video-` + key + `</span>
+                                </div>
+                                <div class="changelog__accordingArrow">
+                                    <span data-feather="chevron-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="collapse` + key + `"
+                         class="collapse"
+                         aria-labelledby="heading` + key + `"
+                         data-parent="#accordion">
+                        <video width="100%" id="videoTag" src="http://localhost:8000/static` + ele + `"
+                               controls>
+                        </video>
+                    </div>
+                </div>
+            </div>`;
+            key++;
+        })
+        $('#videoTagList').html(html);
+        // $("#videoTag").attr('src', 'http://localhost:8000/static' + url)
     }
 
     const sendNoti = () => {
@@ -516,10 +612,12 @@
     }
 
     const setApprove = obj => {
-        course_id = $(obj).parent().parent().data('course')
+        cur_course = $(obj).parent().parent().data('course')
+        cur_user = $(obj).parent().parent().data('user')
         url = '/setApprove/'
         let form_data = new FormData()
-        form_data.append('course_id', course_id)
+        form_data.append('course_id', cur_course)
+
         $.ajax({
             url: url,
             type: 'POST',
@@ -529,16 +627,26 @@
             processData: false,
             data: form_data,
         }).then((response) => {
-            if (response.msg == "success")
-                document.location.reload()
+            if (response.msg == "success") {
+                socket.emit('set_course_approve', {
+                    title: "Congratlations",
+                    content: "Your Course has been approved!!",
+                    course_id: cur_course,
+                    user_id: cur_user
+                })
+            }
+            document.location.reload()
+
         })
+
     }
 
     const setCancel = obj => {
-        course_id = $(obj).parent().parent().data('course')
+        cur_course = $(obj).parent().parent().data('course')
+        cur_user = $(obj).parent().parent().data('user')
         url = '/setCancel/'
         let form_data = new FormData()
-        form_data.append('course_id', course_id)
+        form_data.append('course_id', cur_course)
         $.ajax({
             url: url,
             type: 'POST',
@@ -548,8 +656,15 @@
             processData: false,
             data: form_data,
         }).then((response) => {
-            if (response.msg == "success")
+            if (response.msg == "success"){
+                socket.emit('set_course_cancel', {
+                    title: "Notifications",
+                    content: "Your Course has been refused. Try again!!",
+                    course_id: cur_course,
+                    user_id: cur_user
+                })
                 document.location.reload()
+            }
         })
     }
 
@@ -557,23 +672,36 @@
         $('#add-noti').modal('hide')
     }
 
-    function setTabAll() {
+    function setTabAwaiting() {
         $('#type').val(1)
         $('#search_form').submit()
     }
 
-    function setTabAwaiting () {
+    function setTabApproved() {
         $('#type').val(2)
         $('#search_form').submit()
     }
 
-    function setTabApproved () {
+    function setTabCanceled() {
         $('#type').val(3)
         $('#search_form').submit()
     }
 
-    function setTabCanceled () {
-        $('#type').val(4)
+    function page_prev() {
+        let page = cur_page * 1 - 1
+        $('#page').val(page)
+        $('#search_form').submit()
+    }
+
+    function page_set(num) {
+        $('#page').val(num)
+        cur_page = num;
+        $('#search_form').submit()
+    }
+
+    function page_next() {
+        let page = cur_page * 1 + 1
+        $('#page').val(page)
         $('#search_form').submit()
     }
 

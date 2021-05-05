@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.core.mail import EmailMultiAlternatives, send_mail
+from django.template.loader import render_to_string
 from home.models import *
 from teacher.models import *
 from django.db.models import Q
@@ -67,7 +68,8 @@ def review(request):
     page = request.POST.get('page')
     type = request.POST.get('type')
 
-    print("request::", page, "=====", type)
+    if search == None:
+        search = ''
     if page == '' or page == None:
         page = 1
     else:
@@ -77,16 +79,16 @@ def review(request):
     else :
         type = int(type)
     courses_list = []
+    awaiting_count = len(Courses.objects.filter(approval_status=1).filter(Q(name__contains=search) | Q(user_name__contains=search)))
+    approved_count = len(Courses.objects.filter(approval_status=2).filter(Q(name__contains=search) | Q(user_name__contains=search)))
+    canceled_count = len(Courses.objects.filter(approval_status=3).filter(Q(name__contains=search) | Q(user_name__contains=search)))
     if type*1 == 1:
-        courses_list = Courses.objects.filter(~Q(approval_status=0))
+        courses_list = Courses.objects.filter(approval_status=1).filter(Q(name__contains=search) | Q(user_name__contains=search))
     elif type*1 == 2:
-        courses_list = Courses.objects.filter(approval_status=1)
-    elif type*1 == 3:
-        courses_list = Courses.objects.filter(approval_status=2)
+        courses_list = Courses.objects.filter(approval_status=2).filter(Q(name__contains=search) | Q(user_name__contains=search))
     else:
-        courses_list = Courses.objects.filter(approval_status=3)
-
-    paginator = Paginator(courses_list, 20)
+        courses_list = Courses.objects.filter(approval_status=3).filter(Q(name__contains=search) | Q(user_name__contains=search))
+    paginator = Paginator(courses_list, 2)
     try:
         courses = paginator.page(page)
     except PageNotAnInteger:
@@ -94,23 +96,42 @@ def review(request):
     except EmptyPage:
         courses = paginator.page(paginator.num_pages)
 
-    # return render(request, 'review.html', {'all_courses':all_courses, 'waiting_courses': waiting_courses, 'approved_courses':approved_courses, 'canceled_courses':canceled_courses})
+    for course in courses:
+        secIdList = Sections.objects.filter(course_id=course.id).values_list('id',flat=True)
+        secIdList = map(str, secIdList)
+        secIdStr = ','.join(secIdList)
+        videoList = VideoUploads.objects.extra(where=['FIND_IN_SET(section_id, "' + secIdStr + '")']).values_list('url',flat=True)
+        videoList = map(str, videoList)
+        videoUrlStr = ','.join(videoList)
+        course.video_url = videoUrlStr
+
     return render(request, 'review.html', {
         'courses': courses,
         'type': type,
         'search': search,
-        'page': page
+        'page': page,
+        'awaiting_count': awaiting_count,
+        'approved_count': approved_count,
+        'canceled_count': canceled_count
     })
 
 def test(request):
     search = request.POST.get('search')
     page = request.POST.get('page')
+    if search == None:
+        search = ''
     video_list = TestVideo.objects.all()
+    videoList = []
+    for video in video_list:
+        user = User.objects.filter(id=video.user_id).filter(Q(email__contains=search) | Q(first_name__contains=search) | Q(last_name__contains=search))
+        if len(user) == 1:
+            videoList.append(video)
+
     if page == '' or page == None:
         page = 1
     else :
         page = int(page)
-    paginator = Paginator(video_list, 7)
+    paginator = Paginator(videoList, 2)
     try:
         videos = paginator.page(page)
     except PageNotAnInteger:
@@ -118,7 +139,7 @@ def test(request):
     except EmptyPage:
         videos = paginator.page(paginator.num_pages)
 
-    return render(request, 'test.html', {'video_list': videos})
+    return render(request, 'test.html', {'video_list': videos, 'search': search})
 
 def teachers(request):
     return render(request, 'teachers.html')
@@ -171,6 +192,15 @@ def deleteVideoById(request):
 
 @csrf_exempt
 def setApprove(request):
+    # try:
+    #     course_id = request.POST.get('course_id')
+    #     course = Courses.objects.get(pk=course_id)
+    #     html = render_to_string('mail/course_mail.html', {'course': course})
+    #     print("html test:::\n", html)
+    #     send_mail('','','',['ernestpapyan96@gmail.com'],fail_silently=False,html_message=html)
+    # except:
+    #     exit()
+
     course_id = request.POST.get('course_id')
     course = Courses.objects.get(pk=course_id)
     course.approval_status = 2

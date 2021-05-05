@@ -22,13 +22,13 @@
                                 <form action="" method="post" id="search_form" class="order-search__form">
                                     {% csrf_token %}
                                     <span data-feather="search"></span>
-                                    <input class="form-control mr-sm-2 border-0 box-shadow-none" type="search" id="search" name="search"
-                                           placeholder="Filter by keyword" aria-label="Search">
+                                    <input class="form-control mr-sm-2 border-0 box-shadow-none" type="search"
+                                           id="search" name="search"
+                                           placeholder="Filter by keyword" aria-label="Search" value="{{ search }}">
                                     <input type="hidden" name="page" id="page" value="{{ video_list.number }}">
                                 </form>
                             </div><!-- End: .project-search -->
                         </div>
-
 
                     </div><!-- End: .project-top-wrapper -->
                     <div class="tab-content" id="ap-tabContent">
@@ -73,11 +73,13 @@
                                         </td>
 
                                         <td>
-                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right" data-user="{{ video.user.id }}" data-video="{{ video.id }}" data-src="{{ video.url }}">
+                                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right"
+                                                data-user="{{ video.user.id }}" data-video="{{ video.id }}"
+                                                data-src="{{ video.url }}">
                                                 <li>
                                                     <div class="action-btn">
                                                         <a href="#" style="width: 50px !important;margin-right:-5px"
-                                                           class=" px-15" onclick="showNoti(this)" >
+                                                           class=" px-15" onclick="showNoti(this)">
                                                             <span data-feather="send"></span></a>
                                                     </div>
                                                 </li>
@@ -108,24 +110,30 @@
                             <ul class="atbd-pagination d-flex">
                                 <li class="atbd-pagination__item">
                                     {% if video_list.has_previous %}
-                                    <a href="#" onclick="page_prev()" class="atbd-pagination__link pagination-control"><span
+                                    <a href="#" onclick="page_prev()"
+                                       class="atbd-pagination__link pagination-control"><span
                                             class="la la-angle-left"></span></a>
                                     {% else %}
-                                    <a href="#" class="atbd-pagination__link pagination-control" style="cursor: not-allowed; background: white;"><span
+                                    <a href="#" class="atbd-pagination__link pagination-control"
+                                       style="cursor: not-allowed; background: white;"><span
                                             class="la la-angle-left"></span></a>
                                     {% endif %}
                                     {% for i in video_list.paginator.page_range %}
-                                        {% if video_list.number == i %}
-                                            <a href="#" onclick="page_set('{{ i }}')" class="atbd-pagination__link active"><span class="page-number">{{ i }}</span></a>
-                                        {% else %}
-                                            <a href="#" onclick="page_set('{{ i }}')" class="atbd-pagination__link"><span class="page-number">{{ i }}</span></a>
-                                        {% endif %}
+                                    {% if video_list.number == i %}
+                                    <a href="#" onclick="page_set('{{ i }}')" class="atbd-pagination__link active"><span
+                                            class="page-number">{{ i }}</span></a>
+                                    {% else %}
+                                    <a href="#" onclick="page_set('{{ i }}')" class="atbd-pagination__link"><span
+                                            class="page-number">{{ i }}</span></a>
+                                    {% endif %}
                                     {% endfor %}
                                     {% if video_list.has_next %}
-                                    <a href="#" onclick="page_next()" class="atbd-pagination__link pagination-control"><span
+                                    <a href="#" onclick="page_next()"
+                                       class="atbd-pagination__link pagination-control"><span
                                             class="la la-angle-right"></span></a>
                                     {% else %}
-                                    <a href="#" class="atbd-pagination__link pagination-control" style="cursor: not-allowed; background: white;"><span
+                                    <a href="#" class="atbd-pagination__link pagination-control"
+                                       style="cursor: not-allowed; background: white;"><span
                                             class="la la-angle-right"></span></a>
                                     {% endif %}
                                     <a href="#" class="atbd-pagination__option">
@@ -174,10 +182,12 @@
                                           placeholder="Notification description"></textarea>
                             </div>
                             <div class="button-group d-flex pt-25">
-                                <button class="btn btn-primary btn-default btn-squared text-capitalize" onclick="sendNoti()">
+                                <button class="btn btn-primary btn-default btn-squared text-capitalize"
+                                        onclick="sendNoti()">
                                     Send notification
                                 </button>
-                                <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light" onclick="closeNotiModal()">
+                                <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light"
+                                        onclick="closeNotiModal()">
                                     cancel
                                 </button>
                             </div>
@@ -241,6 +251,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="button-group d-flex pt-25">
@@ -260,7 +271,8 @@
 <script>
 
     let cur_user, cur_video, cur_page;
-    cur_page = {{ video_list.number }};
+    cur_page = '{{ video_list.number }}';
+
     socket.on('add_test_video_complete', data => {
         let user_id = data.user
         let id = data.id
@@ -283,20 +295,20 @@
         })
     })
 
-    const showNoti = obj =>{
+    const showNoti = obj => {
         $("#add-noti").modal('show')
         cur_user = $(obj).parent().parent().parent().data('user')
         cur_video = $(obj).parent().parent().parent().data('video')
     }
 
-    const showVideo = obj =>{
+    const showVideo = obj => {
         $('#show-video').modal('show')
         let url = $(obj).parent().parent().parent().data('src')
         console.log("url:::", url)
         $("#videoTag").attr('src', 'http://localhost:8000/static' + url)
     }
 
-    const sendNoti = () =>{
+    const sendNoti = () => {
         socket.emit('add_noti_testvideo_admin', {
             title: $('#noti_title').val(),
             content: $('#noti_content').val(),
@@ -306,11 +318,11 @@
         $('#add-noti').modal('hide')
     }
 
-    const closeNotiModal = () =>{
+    const closeNotiModal = () => {
         $("#add-noti").modal('hide')
     }
 
-    const deleteVideo = obj =>{
+    const deleteVideo = obj => {
         id = $(obj).parent().parent().data('video')
         url = '/deleteVideoById/'
         let form_data = new FormData()
@@ -324,24 +336,25 @@
             processData: false,
             data: form_data,
         }).then((response) => {
-            if(response.msg == "success")
+            if (response.msg == "success")
                 document.location.reload()
         })
     }
 
     function page_prev() {
-        let page = cur_page*1 - 1
+        let page = cur_page * 1 - 1
         $('#page').val(page)
         $('#search_form').submit()
     }
 
     function page_set(num) {
         $('#page').val(num)
+        cur_page = num;
         $('#search_form').submit()
     }
 
     function page_next() {
-        let page = cur_page*1 + 1
+        let page = cur_page * 1 + 1
         $('#page').val(page)
         $('#search_form').submit()
     }
